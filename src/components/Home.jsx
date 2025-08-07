@@ -73,10 +73,11 @@ const Home = ({ isVisible }) => {
         >
           <div className="relative group max-w-md mx-auto">
   <img
-    src={profile.profileImage}
-    alt={profile.name}
-    className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105"
-  />
+  src={profile.profileImage}
+  alt={profile.name}
+  className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105 animate-float"
+/>
+
 </div>
 
         </div>

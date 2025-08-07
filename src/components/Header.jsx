@@ -1,8 +1,8 @@
 import React from "react";
-import profile from "../data/profile.json";
+
 
 const Header = ({ activeSection }) => {
-  const firstName = profile.name?.split(" ")[0] || "Portfolio";
+  const firstName = "Portfolio";
   const navItems = ["Home", "About", "Projects", "Skills", "Contact"];
 
   return (

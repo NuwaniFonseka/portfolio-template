@@ -10,3 +10,19 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+
+@layer utilities {
+  @keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
