@@ -20,12 +20,12 @@
       {
         "icon": "🌐",
         "title": "Languages",
-        "content": "e.g., English (Fluent), Spanish (Intermediate)"
+        "content": "e.g., Sinhala (Native), English (Fluent)"
       },
       {
         "icon": "📊",
         "title": "Certifications / Scores",
-        "content": "e.g., IELTS Overall: 7.5\nGoogle Cloud Certified"
+        "content": "e.g., Google Cloud Certified"
       }
     ],
     "softSkills": [
@@ -56,14 +56,30 @@
       "image": "/project3.png",
       "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
       "link": "/projects/project-three"
+    },
+     {
+      "title": "Project Four",
+      "image": "/project2.jpg",
+      "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
+      "link": "/projects/project-four"
+    },
+     {
+      "title": "Project Five",
+      "image": "/project3.png",
+      "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
+      "link": "/projects/project-five"
+    },
+     {
+      "title": "Project Six",
+      "image": "/project1.jpg",
+      "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
+      "link": "/projects/project-six"
     }
   ],
 
   "skills": [
     "React.js",
     "Tailwind CSS",
-    "Firebase",
-    "Shopify",
     "HTML / CSS",
     "Vite",
     "Node.js",
@@ -72,10 +88,7 @@
     "SQL / MySQL",
     "JavaScript",
     "Java",
-    "Docker",
-    "Kubernetes",
-    "Kotlin",
-    "WordPress"
+    "Kotlin"
   ],
 
   "contact": {

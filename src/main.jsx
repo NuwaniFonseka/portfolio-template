@@ -2,24 +2,26 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import DonatePath from "./pages/DonatePath";
-import ShoppingEye from "./pages/ShoppingEye";
-import ZeroWaste from "./pages/ZeroWaste";
-import VehicleRental from "./pages/VehicleRental";
+import ProjectOne from "./pages/ProjectOne";
+import ProjectTwo from "./pages/ProjectTwo";
+import ProjectThree from "./pages/ProjectThree";
+import ProjectFour from "./pages/ProjectFour";
+import ProjectFive from "./pages/ProjectFive";
+import ProjectSix from "./pages/ProjectSix";
 import "./index.css";
-import FoodFlix from "./pages/FoodFlix";
-import AutomatedTesting from "./pages/Cypress";
+
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/projects/donatepath" element={<DonatePath />} />
-      <Route path="/projects/shoppingeye" element={<ShoppingEye />} />
-      <Route path="/projects/zerowaste" element={<ZeroWaste />} />
-      <Route path="/projects/vehiclerental" element={<VehicleRental />} />
-      <Route path="/projects/foodflix" element={<FoodFlix />} />
-      <Route path="/projects/automation" element={<AutomatedTesting />} />
+      <Route path="/projects/project-one" element={<ProjectOne />} />
+      <Route path="/projects/project-two" element={<ProjectTwo />} />
+      <Route path="/projects/project-three" element={<ProjectThree />} />
+      <Route path="/projects/project-four" element={<ProjectFour />} />
+      <Route path="/projects/project-five" element={<ProjectFive />} />
+      <Route path="/projects/project-six" element={<ProjectSix />} />
+
     </Routes>
   </BrowserRouter>
 );
