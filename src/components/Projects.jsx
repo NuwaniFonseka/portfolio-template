@@ -1,17 +1,11 @@
 import React from "react";
 import profile from "../data/profile.json";
-import useInView from "../hooks/useInView";
 
 const Projects = () => {
-  const [ref, isVisible] = useInView();
-
   return (
     <section
-      ref={ref}
       id="projects"
-      className={`relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24 transition-all duration-1000 transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
       style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
       {/* Overlay for contrast */}
