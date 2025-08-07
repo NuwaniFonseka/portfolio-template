@@ -10,16 +10,15 @@ import {
   YouTubeIcon,
 } from "../assets/SocialIcons";
 
-// Load environment variables from .env
+// Load from environment variables
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
-  const formRef = useRef(); // Ref to the form DOM node
-  const [status, setStatus] = useState(null); // Form submission status
+  const formRef = useRef();
+  const [status, setStatus] = useState(null);
 
-  // Social media icons and links from profile.json
   const socialPlatforms = [
     { icon: LinkedInIcon, href: profile.contact.socials.linkedin, label: "LinkedIn" },
     { icon: InstagramIcon, href: profile.contact.socials.instagram, label: "Instagram" },
@@ -29,7 +28,6 @@ const Contact = () => {
     { icon: YouTubeIcon, href: profile.contact.socials.youtube, label: "YouTube" },
   ];
 
-  // EmailJS form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("Sending...");
@@ -37,7 +35,7 @@ const Contact = () => {
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(() => {
         setStatus("Message sent ✅");
-        formRef.current.reset(); // Clear form on success
+        formRef.current.reset();
       })
       .catch(() => setStatus("Failed to send ❌"));
   };
@@ -45,22 +43,20 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
+      className="relative bg-cover bg-center bg-no-repeat text-white px-4 sm:px-6 py-16 sm:py-24 lg:py-32 scroll-mt-24"
       style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
-      {/* Background overlay for readability */}
       <div className="absolute inset-0 bg-black/70 z-0" />
 
-      {/* Section Title */}
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center relative z-10">
+      <h2 className="text-4xl sm:text-5xl font-bold mb-16 text-center relative z-10">
         Get In{" "}
         <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Touch
         </span>
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative z-10">
-        {/* Left Column – Contact Info Cards */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 relative z-10">
+        {/* Left – Info Cards */}
         <div className="space-y-6">
           <ContactCard
             icon={EmailIcon}
@@ -81,8 +77,8 @@ const Contact = () => {
             href={profile.contact.location.mapLink}
           />
 
-          {/* Social Media Icons Row */}
-          <div className="flex gap-4 pt-4">
+          {/* Social Icons */}
+          <div className="flex flex-wrap gap-4 pt-4">
             {socialPlatforms.map((social) => (
               <a
                 key={social.label}
@@ -98,14 +94,13 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Right Column – Contact Form */}
+        {/* Right – Contact Form */}
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="space-y-6 text-black bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10 shadow-lg"
+          className="space-y-6 text-black bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-xl border border-white/10 shadow-lg"
         >
-          {/* Name and Email fields */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               name="name"
               type="text"
@@ -122,7 +117,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Subject and Message fields */}
           <input
             name="title"
             type="text"
@@ -138,7 +132,6 @@ const Contact = () => {
             className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
           />
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-primary to-accent text-black px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all"
@@ -146,7 +139,6 @@ const Contact = () => {
             Send Message
           </button>
 
-          {/* Status message (success/failure) */}
           {status && (
             <p className="text-sm text-center pt-2 text-white">{status}</p>
           )}
@@ -156,13 +148,13 @@ const Contact = () => {
   );
 };
 
-// Reusable component for email, phone, and location info
+// Reusable Card
 const ContactCard = ({ icon: Icon, label, value, href }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="block bg-white/10 backdrop-blur-md p-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all duration-300 border border-white/10 hover:border-primary transform hover:scale-105 group text-left"
+    className="block bg-white/10 backdrop-blur-md p-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all duration-300 border border-white/10 hover:border-primary transform hover:scale-105 group"
   >
     <div className="mb-2 text-primary group-hover:animate-bounce">{Icon}</div>
     <h3 className="text-primary font-bold mb-1">{label}</h3>
@@ -172,7 +164,7 @@ const ContactCard = ({ icon: Icon, label, value, href }) => (
   </a>
 );
 
-// Inline SVG for email icon
+// Icons
 const EmailIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
@@ -184,7 +176,6 @@ const EmailIcon = (
   </svg>
 );
 
-// Inline SVG for phone icon
 const PhoneIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
@@ -196,7 +187,6 @@ const PhoneIcon = (
   </svg>
 );
 
-// Inline SVG for location icon
 const LocationIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path

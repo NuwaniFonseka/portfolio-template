@@ -1,63 +1,48 @@
 import React from "react";
-import profile from "../data/profile.json"; // Import profile data 
+import profile from "../data/profile.json";
 
 const Home = ({ isVisible }) => {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-32 scroll-mt-24 transition-all duration-1000"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Background image (ensure it's in the public/ directory)
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 pt-32 pb-16 scroll-mt-24 transition-all duration-1000"
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
-      {/* Overlay layer for better contrast with content */}
       <div className="absolute inset-0 bg-black/60 z-0" />
 
-      {/* Main container for text and image */}
-      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-        
-        {/* Text Section (Name, Bio, Buttons) */}
+      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-6xl mx-auto">
+        {/* Text Section */}
         <div
-          className={`flex-1 space-y-6 text-center md:text-left transform transition-all duration-1000 delay-300 ${
-            isVisible
-              ? "translate-x-20 opacity-100" // Slide-in animation when visible
-              : "-translate-x-10 opacity-0" // Hidden initially
+          className={`flex-1 space-y-6 text-center md:text-left transition-all duration-1000 delay-300 ${
+            isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
           }`}
         >
-          {/* Dynamic name from profile.json, split into two colors */}
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight animate-fade-in">
             <span className="text-white">{profile.name.split(" ")[0]}</span>{" "}
             <span className="text-primary animate-pulse">{profile.name.split(" ")[1]}</span>
           </h2>
-
-          {/* Bio / short description */}
-          <p className="text-gray-300 max-w-xl mx-auto md:mx-0 text-lg leading-relaxed">
+          <p className="text-gray-300 max-w-xl mx-auto md:mx-0 text-base sm:text-lg leading-relaxed">
             {profile.bio}
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            {/* Scroll to Contact section */}
             <a
               href="#contact"
-              className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1"
+              className="bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1 text-center"
             >
               Let's Talk
             </a>
-
-            {/* Scroll to Projects section */}
             <a
               href="#projects"
-              className="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30"
+              className="border-2 border-primary text-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30 text-center"
             >
               View Work
             </a>
-
-            {/* Download resume file from profile.resume path */}
             <a
               href={profile.resume}
               download
-              className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-1 group"
+              className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-1 group text-center"
             >
-              {/* Download icon */}
               <svg
                 className="w-5 h-5 group-hover:animate-bounce"
                 fill="none"
@@ -76,17 +61,17 @@ const Home = ({ isVisible }) => {
           </div>
         </div>
 
-        {/* Image Section - Profile photo or avatar */}
+        {/* Image Section */}
         <div
-          className={`z-10 flex-1 transform transition-all duration-1000 delay-600 ${
+          className={`z-10 flex-1 transition-all duration-1000 delay-600 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
           }`}
         >
-          <div className="relative group max-w-md mx-auto">
+          <div className="relative group max-w-xs sm:max-w-sm md:max-w-md mx-auto">
             <img
-              src={profile.profileImage} 
+              src={profile.profileImage}
               alt={profile.name}
-              className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105 animate-float"
+              className="w-full h-auto object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105 animate-float"
             />
           </div>
         </div>

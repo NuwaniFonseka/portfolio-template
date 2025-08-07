@@ -5,13 +5,13 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Make sure the image exists in the public/ folder
+      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 sm:py-32 scroll-mt-24"
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Background must be placed in /public
     >
-      {/* Dark overlay for better contrast against background image */}
+      {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
-      {/* Section heading */}
+      {/* Section Title */}
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center z-10 relative">
         About{" "}
         <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -19,40 +19,37 @@ const About = () => {
         </span>
       </h2>
 
+      {/* Content */}
       <div className="max-w-5xl mx-auto space-y-12 text-gray-200 z-10 relative">
-        {/* Short introduction or professional summary */}
-        <p className="text-xl md:text-2xl leading-relaxed text-center text-gray-300">
+        {/* Headline Text */}
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-center text-gray-300 px-2">
           {profile.about.headline}
         </p>
 
-        {/* Info Cards Grid (e.g., role, education, languages) */}
+        {/* Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {profile.about.infoCards.map((card, idx) => (
             <div
               key={idx}
               className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300"
             >
-              {/* Each card's title */}
               <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
                 {card.title}
               </h3>
-              {/* Multi-line support for content (e.g., newlines in JSON) */}
-              <p className="whitespace-pre-line text-gray-100">
-                {card.content}
-              </p>
+              <p className="whitespace-pre-line text-gray-100">{card.content}</p>
             </div>
           ))}
 
-          {/* Soft Skills badge-style list */}
-          <div className="md:col-span-2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300">
-            <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
-              <span className="text-2xl"></span> Soft Skills
+          {/* Soft Skills Section */}
+          <div className="md:col-span-2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300 pt-4">
+            <h3 className="text-primary font-bold mb-4 flex items-center gap-2 text-lg text-center justify-center">
+              Soft Skills
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               {profile.about.softSkills.map((skill, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
+                  className="px-4 py-2 min-w-[130px] text-center rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
                 >
                   {skill}
                 </span>
@@ -61,7 +58,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Call-to-action button linking to LinkedIn */}
+        {/* LinkedIn Button */}
         <div className="text-center pt-10">
           <a
             href={profile.about.linkedin}
