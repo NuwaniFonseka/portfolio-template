@@ -11,6 +11,11 @@ html, body {
   overflow-x: hidden;
 }
 
+.input-style {
+  @apply w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+
 @layer utilities {
   @keyframes float {
   0%, 100% {

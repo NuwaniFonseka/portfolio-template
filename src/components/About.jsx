@@ -1,15 +1,21 @@
 import React from "react";
 import profile from "../data/profile.json";
+import useInView from "../hooks/useInView";
 
 const About = () => {
+  const [ref, isVisible] = useInView();
+
   return (
     <section
+      ref={ref}
       id="about"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24 transition-all duration-1000"
+      className={`relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24 transition-all duration-1000 transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
       style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
       {/* Overlay for contrast */}
-      <div className="absolute inset-0 bg-black/70  z-0"></div>
+      <div className="absolute inset-0 bg-black/70 z-0"></div>
 
       {/* Section Title */}
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center z-10 relative">
@@ -44,7 +50,7 @@ const About = () => {
           {/* Soft Skills */}
           <div className="md:col-span-2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300">
             <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
-              <span className="text-2xl">💼</span> Soft Skills
+              <span className="text-2xl"></span> Soft Skills
             </h3>
             <div className="flex flex-wrap gap-3">
               {profile.about.softSkills.map((skill, idx) => (

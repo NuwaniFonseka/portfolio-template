@@ -1,11 +1,17 @@
 import React from "react";
 import profile from "../data/profile.json";
+import useInView from "../hooks/useInView";
 
 const Projects = () => {
+  const [ref, isVisible] = useInView();
+
   return (
     <section
+      ref={ref}
       id="projects"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
+      className={`relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24 transition-all duration-1000 transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
       style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
       {/* Overlay for contrast */}
@@ -28,6 +34,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 backdrop-blur-md text-white p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary/60 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 group"
+            style={{ transitionDelay: `${idx * 100}ms` }}
           >
             {/* Title */}
             <h3 className="text-2xl font-bold mb-4 text-center text-primary group-hover:text-accent transition-colors">
