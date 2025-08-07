@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Global body style */
+body {
+  @apply bg-black text-white font-sans;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
