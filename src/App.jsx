@@ -29,8 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white font-sans relative overflow-hidden">
-      
+<div className="bg-cover bg-fixed bg-center text-white" style={{ backgroundImage: "url('/galaxy-bg.png')" }}>
       <Header activeSection={activeSection} />
       <Home isVisible={isVisible} />
       <About />
@@ -41,61 +40,63 @@ const App = () => {
 
      
       {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transform hover:scale-110 transition-all duration-300 animate-bounce group"
-        >
-          <svg
-            className="w-6 h-6 group-hover:animate-pulse"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </button>
-      </div>
+<div className="fixed bottom-8 right-8 z-50">
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    className="bg-gradient-to-r from-primary to-accent text-white p-4 rounded-full shadow-2xl hover:shadow-primary/50 transform hover:scale-110 transition-all duration-300 animate-bounce group"
+  >
+    <svg
+      className="w-6 h-6 group-hover:animate-pulse"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M5 10l7-7m0 0l7 7m-7-7v18"
+      />
+    </svg>
+  </button>
+</div>
 
-      <style jsx>{`
-        .animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
 
-        .animate-fade-in {
-          animation: fadeInUp 1s ease-out forwards;
-        }
+<style jsx>{`
+  .animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
 
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+  .animate-fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+  }
 
-        .animate-spin-slow {
-          animation: spin 3s linear infinite;
-        }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-        @keyframes spin {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`}</style>
+
     </div>
   );
 };

@@ -1,0 +1,103 @@
+{
+  "name": "Your Name",
+  "bio": "A short introduction or professional summary about yourself.",
+  "resume": "/SampleResume.pdf",
+  "profileImage": "/project3.png",
+
+  "about": {
+    "headline": "Write a brief intro about your background, goals, or mission statement here.",
+    "infoCards": [
+      {
+        "icon": "🎯",
+        "title": "Current Role",
+        "content": "e.g., Frontend Developer at XYZ Company (2023 – Present)"
+      },
+      {
+        "icon": "🎓",
+        "title": "Education",
+        "content": "e.g., BSc in Computer Science at ABC University\nXYZ High School"
+      },
+      {
+        "icon": "🌐",
+        "title": "Languages",
+        "content": "e.g., English (Fluent), Spanish (Intermediate)"
+      },
+      {
+        "icon": "📊",
+        "title": "Certifications / Scores",
+        "content": "e.g., IELTS Overall: 7.5\nGoogle Cloud Certified"
+      }
+    ],
+    "softSkills": [
+      "Teamwork",
+      "Time Management",
+      "Public Speaking",
+      "Problem Solving",
+      "Leadership"
+    ],
+    "linkedin": "https://linkedin.com/in/your-profile"
+  },
+
+  "projects": [
+    {
+      "title": "Project One",
+      "image": "/project1.jpg",
+      "desc": "<strong>React</strong> based web application with authentication and API integration.",
+      "link": "/projects/project-one"
+    },
+    {
+      "title": "Project Two",
+      "image": "/project2.jpg",
+      "desc": "<strong>MERN</strong> stack project with dashboard, analytics, and MongoDB integration.",
+      "link": "/projects/project-two"
+    },
+    {
+      "title": "Project Three",
+      "image": "/project3.png",
+      "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
+      "link": "/projects/project-three"
+    }
+  ],
+
+  "skills": [
+    "React.js",
+    "Tailwind CSS",
+    "Firebase",
+    "Shopify",
+    "HTML / CSS",
+    "Vite",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "SQL / MySQL",
+    "JavaScript",
+    "Java",
+    "Docker",
+    "Kubernetes",
+    "Kotlin",
+    "WordPress"
+  ],
+
+  "contact": {
+    "email": "youremail@example.com",
+    "phone": "+1 234 567 8900",
+    "location": {
+      "label": "City, Country",
+      "mapLink": "https://www.google.com/maps"
+    },
+    "cta": "I'm always excited to connect with fellow developers, potential collaborators, and anyone interested in discussing technology and innovation.",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/yourprofile",
+      "instagram": "https://instagram.com/yourprofile",
+      "facebook": "https://facebook.com/yourprofile",
+      "github": "https://github.com/yourprofile",
+      "tiktok": "https://tiktok.com/@yourprofile",
+      "youtube": "https://youtube.com/yourchannel"
+    }
+  },
+
+  "footer": {
+    "name": "Your Details",
+    "text": "All rights reserved."
+  }
+}

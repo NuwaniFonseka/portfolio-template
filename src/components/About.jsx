@@ -35,7 +35,9 @@ const About = () => {
               <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
                 <span className="text-2xl">{card.icon}</span> {card.title}
               </h3>
-              <p className="whitespace-pre-line text-gray-100">{card.content}</p>
+              <p className="whitespace-pre-line text-gray-100">
+                {card.content}
+              </p>
             </div>
           ))}
 
@@ -45,16 +47,14 @@ const About = () => {
               <span className="text-2xl">💼</span> Soft Skills
             </h3>
             <div className="flex flex-wrap gap-3">
-             {profile.about.softSkills.map((skill, idx) => (
-  <span
-    key={idx}
-    className="px-4 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
-  >
-    {skill}
-  </span>
-))}
-
-
+              {profile.about.softSkills.map((skill, idx) => (
+                <span
+                  key={idx}
+                  className="px-4 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
         </div>
