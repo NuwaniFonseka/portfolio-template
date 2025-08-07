@@ -15,7 +15,7 @@ const Home = ({ isVisible }) => {
         {/* Text Section */}
         <div
           className={`flex-1 space-y-6 text-center md:text-left transform transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+            isVisible ? "translate-x-20 opacity-100" : "-translate-x-10 opacity-0"
           }`}
         >
           <h2 className="text-5xl md:text-6xl font-extrabold leading-tight animate-fade-in">
@@ -71,14 +71,14 @@ const Home = ({ isVisible }) => {
             isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
           }`}
         >
-          <div className="relative group max-w-sm mx-auto">
-            <img
-              src={profile.profileImage}
-              alt={profile.name}
-              className="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5] border border-gray-700/30 hover:border-purple-500 bg-galaxySoft"
-            />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </div>
+          <div className="relative group max-w-md mx-auto">
+  <img
+    src={profile.profileImage}
+    alt={profile.name}
+    className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105"
+  />
+</div>
+
         </div>
       </div>
     </section>
