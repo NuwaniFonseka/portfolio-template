@@ -6,12 +6,12 @@ const About = () => {
     <section
       id="about"
       className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Make sure the image exists in the public/ folder
     >
-      {/* Overlay for contrast */}
+      {/* Dark overlay for better contrast against background image */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
-      {/* Section Title */}
+      {/* Section heading */}
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center z-10 relative">
         About{" "}
         <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -20,28 +20,30 @@ const About = () => {
       </h2>
 
       <div className="max-w-5xl mx-auto space-y-12 text-gray-200 z-10 relative">
-        {/* Headline */}
+        {/* Short introduction or professional summary */}
         <p className="text-xl md:text-2xl leading-relaxed text-center text-gray-300">
           {profile.about.headline}
         </p>
 
-        {/* Info Cards */}
+        {/* Info Cards Grid (e.g., role, education, languages) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {profile.about.infoCards.map((card, idx) => (
             <div
               key={idx}
               className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300"
             >
+              {/* Each card's title */}
               <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
-                <span className="text-2xl">{card.icon}</span> {card.title}
+                {card.title}
               </h3>
+              {/* Multi-line support for content (e.g., newlines in JSON) */}
               <p className="whitespace-pre-line text-gray-100">
                 {card.content}
               </p>
             </div>
           ))}
 
-          {/* Soft Skills */}
+          {/* Soft Skills badge-style list */}
           <div className="md:col-span-2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300">
             <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
               <span className="text-2xl"></span> Soft Skills
@@ -59,7 +61,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* LinkedIn CTA */}
+        {/* Call-to-action button linking to LinkedIn */}
         <div className="text-center pt-10">
           <a
             href={profile.about.linkedin}

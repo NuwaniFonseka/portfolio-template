@@ -1,33 +1,41 @@
 import React from "react";
-import profile from "../data/profile.json";
+import profile from "../data/profile.json"; // Import profile data 
 
 const Home = ({ isVisible }) => {
   return (
     <section
       id="home"
       className="relative min-h-screen bg-cover bg-center bg-no-repeat text-white px-6 py-32 scroll-mt-24 transition-all duration-1000"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Make sure this file is in public/
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Background image (ensure it's in the public/ directory)
     >
-      {/* Overlay for better contrast */}
+      {/* Overlay layer for better contrast with content */}
       <div className="absolute inset-0 bg-black/60 z-0" />
 
+      {/* Main container for text and image */}
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-        {/* Text Section */}
+        
+        {/* Text Section (Name, Bio, Buttons) */}
         <div
           className={`flex-1 space-y-6 text-center md:text-left transform transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-x-20 opacity-100" : "-translate-x-10 opacity-0"
+            isVisible
+              ? "translate-x-20 opacity-100" // Slide-in animation when visible
+              : "-translate-x-10 opacity-0" // Hidden initially
           }`}
         >
+          {/* Dynamic name from profile.json, split into two colors */}
           <h2 className="text-5xl md:text-6xl font-extrabold leading-tight animate-fade-in">
             <span className="text-white">{profile.name.split(" ")[0]}</span>{" "}
             <span className="text-primary animate-pulse">{profile.name.split(" ")[1]}</span>
           </h2>
+
+          {/* Bio / short description */}
           <p className="text-gray-300 max-w-xl mx-auto md:mx-0 text-lg leading-relaxed">
             {profile.bio}
           </p>
 
-          {/* Buttons */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            {/* Scroll to Contact section */}
             <a
               href="#contact"
               className="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-accent transition-all shadow-lg hover:shadow-purple-500/40 transform hover:-translate-y-1"
@@ -35,6 +43,7 @@ const Home = ({ isVisible }) => {
               Let's Talk
             </a>
 
+            {/* Scroll to Projects section */}
             <a
               href="#projects"
               className="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all transform hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30"
@@ -42,11 +51,13 @@ const Home = ({ isVisible }) => {
               View Work
             </a>
 
+            {/* Download resume file from profile.resume path */}
             <a
               href={profile.resume}
               download
               className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-1 group"
             >
+              {/* Download icon */}
               <svg
                 className="w-5 h-5 group-hover:animate-bounce"
                 fill="none"
@@ -65,21 +76,19 @@ const Home = ({ isVisible }) => {
           </div>
         </div>
 
-        {/* Image Section */}
+        {/* Image Section - Profile photo or avatar */}
         <div
           className={`z-10 flex-1 transform transition-all duration-1000 delay-600 ${
             isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
           }`}
         >
           <div className="relative group max-w-md mx-auto">
-  <img
-  src={profile.profileImage}
-  alt={profile.name}
-  className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105 animate-float"
-/>
-
-</div>
-
+            <img
+              src={profile.profileImage} 
+              alt={profile.name}
+              className="w-full h-[550px] object-contain rounded-2xl shadow-2xl transition-transform duration-500 hover:scale-105 animate-float"
+            />
+          </div>
         </div>
       </div>
     </section>
