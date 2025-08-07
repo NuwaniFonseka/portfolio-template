@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import profile from "../data/profile.json";
-import useInView from "../hooks/useInView";
 import emailjs from "@emailjs/browser";
 import {
   LinkedInIcon,
@@ -15,9 +14,7 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-
 const Contact = () => {
-  const [ref, isVisible] = useInView();
   const formRef = useRef();
   const [status, setStatus] = useState(null);
 
@@ -44,17 +41,17 @@ const Contact = () => {
 
   return (
     <section
-      ref={ref}
       id="contact"
-      className={`relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24 transition-all duration-1000 transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
       style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
       <div className="absolute inset-0 bg-black/70 z-0" />
 
       <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center relative z-10">
-        Get In <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Touch</span>
+        Get In{" "}
+        <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          Touch
+        </span>
       </h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative z-10">
@@ -93,17 +90,21 @@ const Contact = () => {
 };
 
 const ContactCard = ({ icon: Icon, label, value, href }) => (
-  <div className="bg-white/10 backdrop-blur-md p-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all duration-300 border border-white/10 hover:border-primary transform hover:scale-105 group text-left">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block bg-white/10 backdrop-blur-md p-4 rounded-lg shadow-lg hover:shadow-primary/20 transition-all duration-300 border border-white/10 hover:border-primary transform hover:scale-105 group text-left"
+  >
     <div className="mb-2 text-primary group-hover:animate-bounce">{Icon}</div>
     <h3 className="text-primary font-bold mb-1">{label}</h3>
-    <a href={href} target="_blank" rel="noopener noreferrer"
-       className="text-gray-300 hover:text-primary underline underline-offset-2 transition-colors duration-300 break-words">
+    <p className="text-gray-300 group-hover:text-primary underline underline-offset-2 break-words transition-colors duration-300">
       {value}
-    </a>
-  </div>
+    </p>
+  </a>
 );
 
-// Icons
+
 const EmailIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
