@@ -39,37 +39,37 @@
       "title": "Project One",
       "image": "/project1.jpg",
       "desc": "<strong>React</strong> based web application with authentication and API integration.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     },
     {
       "title": "Project Two",
       "image": "/project2.jpg",
       "desc": "<strong>MERN</strong> stack project with dashboard, analytics, and MongoDB integration.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     },
     {
       "title": "Project Three",
       "image": "/project3.png",
       "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     },
-     {
+    {
       "title": "Project Four",
       "image": "/project2.jpg",
       "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     },
-     {
+    {
       "title": "Project Five",
       "image": "/project3.png",
       "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     },
-     {
+    {
       "title": "Project Six",
       "image": "/project1.jpg",
       "desc": "Mobile-first <strong>Flutter</strong> application with Firebase backend and push notifications.",
-      "link": "https://github.com/yourusername/weather-app" 
+      "link": "https://github.com/yourusername/weather-app"
     }
   ],
 

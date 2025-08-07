@@ -6,7 +6,8 @@
 body {
   @apply bg-black text-white font-sans;
 }
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
@@ -15,17 +16,16 @@ html, body {
   @apply w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary;
 }
 
-
 @layer utilities {
   @keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(1deg);
+    }
   }
-  50% {
-    transform: translateY(-15px) rotate(1deg);
-  }
-}
-
 
   .animate-float {
     animation: float 4s ease-in-out infinite;

@@ -20,19 +20,36 @@ const Contact = () => {
   const [status, setStatus] = useState(null);
 
   const socialPlatforms = [
-    { icon: LinkedInIcon, href: profile.contact.socials.linkedin, label: "LinkedIn" },
-    { icon: InstagramIcon, href: profile.contact.socials.instagram, label: "Instagram" },
-    { icon: FacebookIcon, href: profile.contact.socials.facebook, label: "Facebook" },
+    {
+      icon: LinkedInIcon,
+      href: profile.contact.socials.linkedin,
+      label: "LinkedIn",
+    },
+    {
+      icon: InstagramIcon,
+      href: profile.contact.socials.instagram,
+      label: "Instagram",
+    },
+    {
+      icon: FacebookIcon,
+      href: profile.contact.socials.facebook,
+      label: "Facebook",
+    },
     { icon: GitHubIcon, href: profile.contact.socials.github, label: "GitHub" },
     { icon: TikTokIcon, href: profile.contact.socials.tiktok, label: "TikTok" },
-    { icon: YouTubeIcon, href: profile.contact.socials.youtube, label: "YouTube" },
+    {
+      icon: YouTubeIcon,
+      href: profile.contact.socials.youtube,
+      label: "YouTube",
+    },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+    emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(() => {
         setStatus("Message sent ✅");
         formRef.current.reset();
@@ -166,7 +183,12 @@ const ContactCard = ({ icon: Icon, label, value, href }) => (
 
 // Icons
 const EmailIcon = (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg
+    className="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -177,7 +199,12 @@ const EmailIcon = (
 );
 
 const PhoneIcon = (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg
+    className="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -188,7 +215,12 @@ const PhoneIcon = (
 );
 
 const LocationIcon = (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg
+    className="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"

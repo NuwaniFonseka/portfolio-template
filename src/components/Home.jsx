@@ -14,12 +14,16 @@ const Home = ({ isVisible }) => {
         {/* Text Section */}
         <div
           className={`flex-1 space-y-6 text-center md:text-left transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+            isVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-10 opacity-0"
           }`}
         >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight animate-fade-in">
             <span className="text-white">{profile.name.split(" ")[0]}</span>{" "}
-            <span className="text-primary animate-pulse">{profile.name.split(" ")[1]}</span>
+            <span className="text-primary animate-pulse">
+              {profile.name.split(" ")[1]}
+            </span>
           </h2>
           <p className="text-gray-300 max-w-xl mx-auto md:mx-0 text-base sm:text-lg leading-relaxed">
             {profile.bio}

@@ -6,7 +6,7 @@ const Skills = () => {
     <section
       id="skills"
       className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }} 
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
       {/* Dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>

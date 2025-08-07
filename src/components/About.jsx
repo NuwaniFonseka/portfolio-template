@@ -36,7 +36,9 @@ const About = () => {
               <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
                 {card.title}
               </h3>
-              <p className="whitespace-pre-line text-gray-100">{card.content}</p>
+              <p className="whitespace-pre-line text-gray-100">
+                {card.content}
+              </p>
             </div>
           ))}
 
