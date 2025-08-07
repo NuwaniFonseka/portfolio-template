@@ -45,14 +45,15 @@ const About = () => {
               <span className="text-2xl">💼</span> Soft Skills
             </h3>
             <div className="flex flex-wrap gap-3">
-              {profile.about.softSkills.map((skill, idx) => (
+             {profile.about.softSkills.map((skill, idx) => (
   <span
     key={idx}
-    className="px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-white border border-white/10 hover:opacity-90 transition-all duration-300 shadow-sm"
+    className="px-4 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
   >
     {skill}
   </span>
 ))}
+
 
             </div>
           </div>
