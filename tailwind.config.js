@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#8b5cf6",         // purple-500 for main accents (buttons, highlights)
+        primary: "#9c77f1",         // purple-500 for main accents (buttons, highlights)
         accent: "#a78bfa",          // lighter purple for secondary accents
         galaxy: "#1e1b2e",          // dark purple background base
         galaxySoft: "#2a213a",      // softer background for cards
