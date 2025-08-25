@@ -126,21 +126,23 @@ const Contact = () => {
           />
 
           {/* Social Icons */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            {socialPlatforms.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
-                           border border-white/10 hover:scale-110 transition"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+         {/* Social Icons */}
+<div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+  {socialPlatforms.map((social) => (
+    <a
+      key={social.label}
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={social.label}
+      className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
+                 border border-white/10 hover:scale-110 transition"
+    >
+      {social.icon}
+    </a>
+  ))}
+</div>
+
         </div>
 
         {/* Right – Contact Form */}

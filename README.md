@@ -63,9 +63,8 @@ All content is controlled through `src/data/profile.json`. You can edit the foll
 ```
 
 ### 🔹 About Section
-- `headline`: A short intro
-- `infoCards`: Array of title/content blocks (like role, education)
-- `softSkills`: Array of string badges
+- `headline`: A short intro (appears as a centered paragraph)
+- `highlights`: Array of title/content blocks (e.g., role, education, experience highlights)
 
 ### 🔹 Projects
 ```json
