@@ -29,7 +29,7 @@ const Contact = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); 
+            observer.disconnect();
           }
         });
       },
@@ -45,28 +45,12 @@ const Contact = () => {
   // --- End heading animation ---
 
   const socialPlatforms = [
-    {
-      icon: LinkedInIcon,
-      href: profile.contact.socials.linkedin,
-      label: "LinkedIn",
-    },
-    {
-      icon: InstagramIcon,
-      href: profile.contact.socials.instagram,
-      label: "Instagram",
-    },
-    {
-      icon: FacebookIcon,
-      href: profile.contact.socials.facebook,
-      label: "Facebook",
-    },
+    { icon: LinkedInIcon, href: profile.contact.socials.linkedin, label: "LinkedIn" },
+    { icon: InstagramIcon, href: profile.contact.socials.instagram, label: "Instagram" },
+    { icon: FacebookIcon, href: profile.contact.socials.facebook, label: "Facebook" },
     { icon: GitHubIcon, href: profile.contact.socials.github, label: "GitHub" },
     { icon: TikTokIcon, href: profile.contact.socials.tiktok, label: "TikTok" },
-    {
-      icon: YouTubeIcon,
-      href: profile.contact.socials.youtube,
-      label: "YouTube",
-    },
+    { icon: YouTubeIcon, href: profile.contact.socials.youtube, label: "YouTube" },
   ];
 
   const handleSubmit = (e) => {
@@ -85,11 +69,8 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-4 sm:px-6 py-16 sm:py-24 lg:py-32 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      className="relative text-white px-4 sm:px-6 py-16 sm:py-24 lg:py-32 scroll-mt-24"
     >
-      <div className="absolute inset-0 bg-black/70 z-0" />
-
       {/* Heading with fade-in-up */}
       <h2
         ref={headingRef}
@@ -126,23 +107,21 @@ const Contact = () => {
           />
 
           {/* Social Icons */}
-         {/* Social Icons */}
-<div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
-  {socialPlatforms.map((social) => (
-    <a
-      key={social.label}
-      href={social.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={social.label}
-      className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
-                 border border-white/10 hover:scale-110 transition"
-    >
-      {social.icon}
-    </a>
-  ))}
-</div>
-
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+            {socialPlatforms.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
+                           border border-white/10 hover:scale-110 transition"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Right – Contact Form */}
@@ -225,7 +204,7 @@ const ContactCard = ({ icon: Icon, label, value, href }) => (
   </a>
 );
 
-// Icons 
+// Icons
 const EmailIcon = (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path

@@ -5,12 +5,9 @@ const Home = ({ isVisible }) => {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-[url('/galaxy-bg.png')] bg-cover bg-center bg-no-repeat 
+      className="relative min-h-screen 
                  text-white px-4 sm:px-6 scroll-mt-24 transition-all duration-1000 flex items-center justify-center"
     >
-      {/* Overlay - always dark with opacity */}
-      <div className="absolute inset-0 bg-black/70 z-0" />
-
       {/* Content */}
       <div
         className={`relative z-10 flex flex-col items-center text-center space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${

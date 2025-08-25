@@ -11,7 +11,7 @@ const About = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); 
+            observer.disconnect();
           }
         });
       },
@@ -30,11 +30,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 sm:py-32 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      className="relative text-white px-6 py-24 sm:py-32 scroll-mt-24"
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70 z-0"></div>
+      {/* Removed per-section background + overlay, since handled globally */}
 
       <div className="relative z-10 max-w-6xl mx-auto space-y-16">
         {/* Title with fade-in-up */}

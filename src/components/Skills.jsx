@@ -12,7 +12,7 @@ const Skills = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); 
+            observer.disconnect();
           }
         });
       },
@@ -29,12 +29,8 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      className="relative text-white px-6 py-24 scroll-mt-24"
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70 z-0"></div>
-
       {/* Heading with fade-in-up */}
       <h2
         ref={headingRef}
@@ -48,7 +44,7 @@ const Skills = () => {
         </span>
       </h2>
 
-      {/* Skills grid (unchanged, no animation) */}
+      {/* Skills grid */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-center relative z-10">
         {profile.skills.map((skill, idx) => (
           <div

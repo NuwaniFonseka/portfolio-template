@@ -20,7 +20,7 @@ const Projects = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect(); 
+            observer.disconnect();
           }
         });
       },
@@ -39,11 +39,8 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      className="relative text-white px-6 py-24 scroll-mt-24"
     >
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
-
       {/* Heading with fade-in animation */}
       <h2
         ref={headingRef}

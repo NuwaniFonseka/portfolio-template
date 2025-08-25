@@ -10,16 +10,6 @@ import Footer from "./components/Footer";
 const App = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") || "dark"
-  );
-
-  // Handle theme toggle
-  useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
 
   // Handle section visibility + animations
   useEffect(() => {
@@ -43,35 +33,49 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white text-gray-900 dark:bg-galaxy dark:text-white transition-colors duration-500">
-      <Header activeSection={activeSection} theme={theme} setTheme={setTheme} />
-      <Home isVisible={isVisible} />
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
-      <Footer />
+    <div className="relative min-h-screen text-white">
+      {/* Fixed background layer */}
+      <div
+        className="fixed inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/galaxy-bg.png')" }}
+      ></div>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="bg-gradient-to-r from-primary to-accent text-white p-4 rounded-full shadow-2xl hover:shadow-primary/50 transform hover:scale-110 transition-all duration-300 animate-bounce group"
-        >
-          <svg
-            className="w-6 h-6 group-hover:animate-pulse"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+      {/* Dark overlay on top of bg */}
+      <div className="fixed inset-0 bg-black/70"></div>
+
+      {/* Scrollable content */}
+      <div className="relative z-10">
+        <Header activeSection={activeSection} />
+        <Home isVisible={isVisible} />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+
+        {/* Floating Action Button */}
+        <div className="fixed bottom-8 right-8 z-50">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="bg-gradient-to-r from-primary to-accent text-white p-4 rounded-full 
+                       shadow-2xl hover:shadow-primary/50 transform hover:scale-110 
+                       transition-all duration-300 animate-bounce group"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </button>
+            <svg
+              className="w-6 h-6 group-hover:animate-pulse"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Animation styles */}
