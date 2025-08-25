@@ -1,75 +1,73 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import profile from "../data/profile.json";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); 
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
+    }
+
+    return () => {
+      if (headingRef.current) observer.unobserve(headingRef.current);
+    };
+  }, []);
+
   return (
     <section
       id="about"
       className="relative bg-cover bg-center bg-no-repeat text-white px-6 py-24 sm:py-32 scroll-mt-24"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }} // Background must be placed in /public
+      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
     >
-      {/* Dark overlay for contrast */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70 z-0"></div>
 
-      {/* Section Title */}
-      <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center z-10 relative">
-        About{" "}
-        <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          Me
-        </span>
-      </h2>
+      <div className="relative z-10 max-w-6xl mx-auto space-y-16">
+        {/* Title with fade-in-up */}
+        <h2
+          ref={headingRef}
+          className={`text-4xl md:text-5xl font-bold text-center transition-all duration-1000 ${
+            isVisible ? "animate-fade-in-up opacity-100" : "opacity-0"
+          }`}
+        >
+          About{" "}
+          <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Me
+          </span>
+        </h2>
 
-      {/* Content */}
-      <div className="max-w-5xl mx-auto space-y-12 text-gray-200 z-10 relative">
-        {/* Headline Text */}
-        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-center text-gray-300 px-2">
+        {/* Headline */}
+        <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-center text-gray-300 max-w-3xl mx-auto">
           {profile.about.headline}
         </p>
 
-        {/* Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {profile.about.infoCards.map((card, idx) => (
+        {/* Quick Highlights */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {profile.about.highlights.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300"
+              className="bg-white/10 p-6 rounded-xl shadow-lg text-center border border-white/10 hover:border-primary transition-all"
             >
-              <h3 className="text-primary font-bold mb-3 flex items-center gap-2 text-lg">
-                {card.title}
-              </h3>
-              <p className="whitespace-pre-line text-gray-100">
-                {card.content}
+              <h3 className="text-primary font-bold mb-2">{item.title}</h3>
+              <p className="text-gray-200 text-sm whitespace-pre-line">
+                {item.content}
               </p>
             </div>
           ))}
-
-          {/* Soft Skills Section */}
-          <div className="md:col-span-2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg border border-white/10 hover:border-primary transform hover:scale-105 transition-all duration-300 pt-4">
-            <h3 className="text-primary font-bold mb-4 flex items-center gap-2 text-lg text-center justify-center">
-              Soft Skills
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {profile.about.softSkills.map((skill, idx) => (
-                <span
-                  key={idx}
-                  className="px-4 py-2 min-w-[130px] text-center rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-black transition-all duration-300 shadow-sm"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* LinkedIn Button */}
-        <div className="text-center pt-10">
-          <a
-            href={profile.about.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-primary to-accent text-black px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-primary/40 transform hover:scale-110 transition-all duration-300"
-          >
-            Connect on LinkedIn
-          </a>
         </div>
       </div>
     </section>

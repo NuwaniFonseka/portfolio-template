@@ -10,7 +10,18 @@ import Footer from "./components/Footer";
 const App = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "dark"
+  );
 
+  // Handle theme toggle
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  // Handle section visibility + animations
   useEffect(() => {
     setIsVisible(true);
 
@@ -32,11 +43,8 @@ const App = () => {
   }, []);
 
   return (
-    <div
-      className="bg-cover bg-fixed bg-center text-white"
-      style={{ backgroundImage: "url('/galaxy-bg.png')" }}
-    >
-      <Header activeSection={activeSection} />
+    <div className="bg-white text-gray-900 dark:bg-galaxy dark:text-white transition-colors duration-500">
+      <Header activeSection={activeSection} theme={theme} setTheme={setTheme} />
       <Home isVisible={isVisible} />
       <About />
       <Projects />
@@ -66,6 +74,7 @@ const App = () => {
         </button>
       </div>
 
+      {/* Animation styles */}
       <style jsx>{`
         .animate-in {
           opacity: 1 !important;

@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../data/profile.json"; // Import footer data from JSON
+import profile from "../data/profile.json"; 
 
 const Footer = () => {
   // Get current year dynamically

@@ -7,15 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#9c77f1",         // purple-500 for main accents (buttons, highlights)
-        accent: "#a78bfa",          // lighter purple for secondary accents
-        galaxy: "#1e1b2e",          // dark purple background base
-        galaxySoft: "#2a213a",      // softer background for cards
-        white: "#f8f8ff",           // off-white for text
-        cardBorder: "#4b445c",      // subtle border color
+        primary: "#9c77f1",
+        accent: "#a78bfa",
+        galaxy: "#1e1b2e",
+        galaxySoft: "#2a213a",
+        white: "#f8f8ff",
+        cardBorder: "#4b445c",
       },
       backgroundImage: {
-        'galaxy': "url('/galaxy-bg.png')", // custom class: bg-galaxy
+        galaxy: "url('/galaxy-bg.png')",
       },
       fontFamily: {
         sans: ['Nunito', 'sans-serif'],

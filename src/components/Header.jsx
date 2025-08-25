@@ -6,15 +6,9 @@ const Header = ({ activeSection }) => {
   const navItems = ["Home", "About", "Projects", "Skills", "Contact"];
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full bg-black/80 backdrop-blur-lg px-6 py-4 z-50 shadow-2xl border-b border-gray-800/50 transition-all duration-1000 transform ${
-        activeSection === "home"
-          ? "translate-y-0 opacity-100"
-          : "-translate-y-full opacity-0"
-      }`}
-    >
+    <header className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-lg px-6 py-4 z-50 shadow-2xl border-b border-gray-800/50 transition-all duration-500">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
-        {/* Logo / Site Name */}
+        {/* Site Name */}
         <h1 className="text-xl font-bold text-white hover:text-primary transition-colors duration-300 cursor-pointer">
           {firstName}
         </h1>

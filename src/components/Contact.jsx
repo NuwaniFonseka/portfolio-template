@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import profile from "../data/profile.json";
 import emailjs from "@emailjs/browser";
 import {
@@ -18,6 +18,31 @@ const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const Contact = () => {
   const formRef = useRef();
   const [status, setStatus] = useState(null);
+
+  // --- Heading Animation ---
+  const [isVisible, setIsVisible] = useState(false);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect(); 
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (headingRef.current) observer.observe(headingRef.current);
+
+    return () => {
+      if (headingRef.current) observer.unobserve(headingRef.current);
+    };
+  }, []);
+  // --- End heading animation ---
 
   const socialPlatforms = [
     {
@@ -65,7 +90,13 @@ const Contact = () => {
     >
       <div className="absolute inset-0 bg-black/70 z-0" />
 
-      <h2 className="text-4xl sm:text-5xl font-bold mb-16 text-center relative z-10">
+      {/* Heading with fade-in-up */}
+      <h2
+        ref={headingRef}
+        className={`text-4xl sm:text-5xl font-bold mb-16 text-center relative z-10 transition-all duration-1000 ${
+          isVisible ? "animate-fade-in-up opacity-100" : "opacity-0"
+        }`}
+      >
         Get In{" "}
         <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Touch
@@ -103,7 +134,8 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/10 hover:border-primary text-gray-400 hover:text-primary transition"
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center 
+                           border border-white/10 hover:scale-110 transition"
               >
                 {social.icon}
               </a>
@@ -123,14 +155,19 @@ const Contact = () => {
               type="text"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 
+                         focus:outline-none focus:ring-2 focus:ring-primary 
+                         placeholder-gray-700 text-black"
             />
+
             <input
               name="email"
               type="email"
               placeholder="Your Email"
               required
-              className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 
+                         focus:outline-none focus:ring-2 focus:ring-primary 
+                         placeholder-gray-700 text-black"
             />
           </div>
 
@@ -139,14 +176,19 @@ const Contact = () => {
             type="text"
             placeholder="Subject"
             required
-            className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 
+                       focus:outline-none focus:ring-2 focus:ring-primary 
+                       placeholder-gray-700 text-black"
           />
+
           <textarea
             name="message"
             rows="5"
             placeholder="Your Message"
             required
-            className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-3 rounded-md bg-white/80 border border-white/10 
+                       focus:outline-none focus:ring-2 focus:ring-primary 
+                       placeholder-gray-700 text-black"
           />
 
           <button
@@ -181,14 +223,9 @@ const ContactCard = ({ icon: Icon, label, value, href }) => (
   </a>
 );
 
-// Icons
+// Icons 
 const EmailIcon = (
-  <svg
-    className="w-6 h-6"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -199,12 +236,7 @@ const EmailIcon = (
 );
 
 const PhoneIcon = (
-  <svg
-    className="w-6 h-6"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -215,12 +247,7 @@ const PhoneIcon = (
 );
 
 const LocationIcon = (
-  <svg
-    className="w-6 h-6"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
